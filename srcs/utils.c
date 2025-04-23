@@ -13,3 +13,16 @@ void	ft_putstr_fd(char *s, int fd)
 		i++;
 	}
 }
+
+int join_philo(t_philo *philo)
+{
+	// int i;
+
+	// i = 0;
+	// while(i < philo->philosophers)
+	// {
+	// 	pthread_join(philo[i].thread, NULL);
+	// 	i++;
+	// }
+	return (EXIT_SUCCESS);
+}
