@@ -1,7 +1,11 @@
 NAME = philo
 
 C_FILES = main.c\
+			time.c\
+			utils.c\
+			parthing.c\
 			ft_calloc.c\
+			init_philo.c\
 
 BOLD = \033[1m
 RED = \033[31m

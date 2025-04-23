@@ -16,7 +16,7 @@ typedef struct s_routine
 	int				time_to_die;
 	int				meals_count;
 	int				start_time;
-	pthread_mutex_t	stop;
+	pthread_mutex_t	stop_mutex;
     pthread_mutex_t meals_mutex;
 
 }					t_routine;
@@ -36,8 +36,15 @@ typedef struct s_philo
 }					t_philo;
 
 // UTILS
-void				*ft_calloc(size_t nmemb, size_t size);
 void				ft_putstr_fd(char *s, int fd);
+void				*ft_calloc(size_t nmemb, size_t size);
 int					join_philo(t_philo *philo);
+int 				destroy_philo(t_philo *philo);
+
+// TIME
+unsigned int 		get_time();
+
+// INIT
+int 				init_philo(t_philo *philo, int ac, char **av);
 
 #endif
