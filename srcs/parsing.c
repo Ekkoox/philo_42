@@ -26,7 +26,7 @@ static int	is_digit(char *str)
 	return (0);
 }
 
-static int	convert_nbr(char *str)
+int	convert_nbr(char *str)
 {
 	long int	nbr;
 	int			i;
