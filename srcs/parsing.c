@@ -26,7 +26,7 @@ static int	is_digit(char *str)
 	return (0);
 }
 
-static int	convert_nbr(char *str)
+int	convert_nbr(char *str)
 {
 	long int	nbr;
 	int			i;
@@ -43,4 +43,16 @@ static int	convert_nbr(char *str)
 		i++;
 	}
 	return ((int)nbr);
+}
+
+int	check_parsing(t_philo *philo, int ac)
+{
+	if (philo->routine->nbr_philos == -1
+		|| philo->routine->time_to_die == -1
+		|| philo->routine->time_to_eat == -1
+		|| philo->routine->time_to_sleep == -1)
+		return (EXIT_FAILURE);
+	if (ac == 6 && philo->routine->meals_count == -1)
+		return (EXIT_FAILURE);
+	return (EXIT_SUCCESS);
 }

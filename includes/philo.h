@@ -60,5 +60,6 @@ void				ft_putstr_fd(char *s, int fd);
 void				*ft_calloc(size_t nmemb, size_t size);
 
 //PARSING
-int					check_args(int argc, char **argv);
+int			convert_nbr(char *str);
+int			check_parsing(t_philo *philo, int ac);
 #endif
