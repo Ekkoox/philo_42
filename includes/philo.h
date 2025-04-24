@@ -11,9 +11,12 @@
 typedef struct s_routine
 {
 	int				stop;
+	int				start_time;
+	int				meals_count;
 	int				time_to_eat;
-	int				time_to_sleep;
 	int				time_to_die;
+	int				nbr_philos;
+	int				time_to_sleep;
 	int				meals_count;
 	int				start_time;
 	pthread_mutex_t	stop_mutex; //assigned in detroy 1
@@ -23,7 +26,6 @@ typedef struct s_routine
 
 typedef struct s_data
 {
-	int				philosophers;
 	pthread_t		thread;
 	pthread_mutex_t	left_forks; //assigned in detroy 3
 	pthread_mutex_t	*right_forks; //assigned in detroy 4
@@ -35,16 +37,20 @@ typedef struct s_philo
 	t_data			*data;
 }					t_philo;
 
-// UTILS
-void				ft_putstr_fd(char *s, int fd);
-void				*ft_calloc(size_t nmemb, size_t size);
-int					join_philo(t_philo *philo);
-int 				destroy_philo(t_philo *philo);
+// STRUCT
+int					init_struct(t_philo **philo);
+void				free_struct(t_philo *philo);
 
 // TIME
-unsigned int 		get_time();
+unsigned int		get_time(void);
 
 // INIT
-int 				init_philo(t_philo *philo, int ac, char **av);
+int					init_philo(t_philo *philo, int ac, char **av);
+
+// UTILS
+int					join_philo(t_philo *philo);
+int					destroy_philo(t_philo *philo);
+void				ft_putstr_fd(char *s, int fd);
+void				*ft_calloc(size_t nmemb, size_t size);
 
 #endif
