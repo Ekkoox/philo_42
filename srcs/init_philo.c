@@ -1,14 +1,13 @@
 #include "philo.h"
 
-
 static int	init_routine(t_philo *philo, int ac, char **av)
 {
-	philo->routine->nbr_philos = atoi(av[1]);
-	philo->routine->time_to_die = atoi(av[2]);
-	philo->routine->time_to_eat = atoi(av[3]);
-	philo->routine->time_to_sleep = atoi(av[4]);
+	philo->routine->nbr_philos = convert_nbr(av[1]);
+	philo->routine->time_to_die = convert_nbr(av[2]);
+	philo->routine->time_to_eat = convert_nbr(av[3]);
+	philo->routine->time_to_sleep = convert_nbr(av[4]);
 	if (ac == 6)
-		philo->routine->meals_count = atoi(av[5]);
+		philo->routine->meals_count = convert_nbr(av[5]);
 	else
 		philo->routine->meals_count = -1;
 	philo->routine->stop = 0;
@@ -24,7 +23,7 @@ static int	init_mutex(t_routine *routine)
 	return (EXIT_SUCCESS);
 }
 
-static int	init_mutex_philo(t_data *data)
+static int	init_mutex_data(t_data *data)
 {
 	if (pthread_mutex_init(&data->left_fork, NULL))
 		return (EXIT_FAILURE);
@@ -47,7 +46,7 @@ static int	init_data(t_philo *philo)
 		philo->data[i].eat = 0;
 		philo->data[i].dead = 0;
 		philo->data[i].right_fork = NULL;
-		if (init_mutex_philo(philo->data) == EXIT_FAILURE)
+		if (init_mutex_data(philo->data) == EXIT_FAILURE)
 			return (EXIT_FAILURE);
 		i++;
 	}
