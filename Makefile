@@ -3,6 +3,7 @@ NAME = philo
 C_FILES = main.c\
 			time.c\
 			utils.c\
+			struct.c\
 			parthing.c\
 			ft_calloc.c\
 			init_philo.c\
