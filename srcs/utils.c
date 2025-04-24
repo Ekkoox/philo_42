@@ -25,7 +25,7 @@ int join_philo(t_philo *philo)
 	// 	pthread_join(philo[i].thread, NULL);
 	// 	i++;
 	// }
-	printf("JOIN PHILO\n");
+	// printf("JOIN PHILO\n");
 	return (EXIT_SUCCESS);
 }
 

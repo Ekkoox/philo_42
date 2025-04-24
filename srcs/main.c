@@ -1,17 +1,18 @@
 #include "philo.h"
 
-int	main(void)
+int	main(int ac, char **av)
 {
-	t_philo *philo;
+	t_philo	*philo;
 
-    //parthing
-	philo = ft_calloc(sizeof(t_philo), 1);
-	if (!philo)
-	{
-		printf("Error: Memory allocation failed\n");
-		return (1);
-	}
-    join_philo(philo);
-	free(philo);
-	return (0);
+	(void)ac;
+	philo = NULL;
+	// parthing
+	if (init_struct(&philo) == EXIT_FAILURE)
+		return (EXIT_FAILURE);
+	// init
+	philo->routine->nbr_philos = atoi(av[1]);
+	printf("Number of philosophers: %d\n", philo->routine->nbr_philos);
+	join_philo(philo);
+	free_struct(philo);
+	return (EXIT_SUCCESS);
 }
