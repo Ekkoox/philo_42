@@ -5,7 +5,7 @@ C_FILES = main.c\
 			exit.c\
 			utils.c\
 			struct.c\
-			parthing.c\
+			parsing.c\
 			ft_calloc.c\
 			init_philo.c\
 
