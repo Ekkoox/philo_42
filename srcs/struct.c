@@ -8,18 +8,10 @@ int	init_struct(t_philo **philo)
 		ft_putstr_fd("Error: Philo memory allocation failed\n", 2);
 		return (EXIT_FAILURE);
 	}
-	(*philo)->data = ft_calloc(sizeof(t_routine), 1);
-	if (!(*philo)->data)
-	{
-		ft_putstr_fd("Error: Data memory allocation failed\n", 2);
-		free(*philo);
-		return (EXIT_FAILURE);
-	}
 	(*philo)->routine = ft_calloc(sizeof(t_routine), 1);
 	if (!(*philo)->routine)
 	{
 		ft_putstr_fd("Error: Routine memory allocation failed\n", 2);
-		free((*philo)->data);
 		free(*philo);
 		return (EXIT_FAILURE);
 	}
