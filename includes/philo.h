@@ -3,6 +3,7 @@
 
 # define ERR_PAR_NODIGIT "Error: only number accepted in parameters\n"
 # define ERR_PAR_OUTRANGE "Error: number out of range\n"
+# define ERR_NEG_DIGIT "Error: only positiv number accepted in parameters\n"
 
 # include <pthread.h>
 # include <stdio.h>

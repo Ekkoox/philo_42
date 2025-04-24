@@ -17,6 +17,8 @@ static int	is_digit(char *str)
 		i++;
 	if (str[i] == '+')
 		i++;
+	if (str[i] == '-')
+		return (ft_putstr_fd(ERR_NEG_DIGIT, 2), 1);
 	while (str[i])
 	{
 		if (str[i] < '0' || str[i] > '9')
