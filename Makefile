@@ -2,6 +2,7 @@ NAME = philo
 
 C_FILES = main.c\
 			time.c\
+			exit.c\
 			utils.c\
 			struct.c\
 			parthing.c\

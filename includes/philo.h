@@ -17,16 +17,18 @@ typedef struct s_routine
 	int				time_to_die;
 	int				nbr_philos;
 	int				time_to_sleep;
-	pthread_mutex_t	stop_mutex;
-	pthread_mutex_t	meals_mutex;
+	int				meals_count;
+	int				start_time;
+	pthread_mutex_t	stop_mutex; //assigned in detroy 1
+    pthread_mutex_t meals_mutex; //assigned in detroy 2
 
 }					t_routine;
 
 typedef struct s_data
 {
 	pthread_t		thread;
-	pthread_mutex_t	left_forks;
-	pthread_mutex_t	*right_forks;
+	pthread_mutex_t	left_forks; //assigned in detroy 3
+	pthread_mutex_t	*right_forks; //assigned in detroy 4
 }					t_data;
 
 typedef struct s_philo
