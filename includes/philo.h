@@ -60,5 +60,6 @@ void				*ft_calloc(size_t nmemb, size_t size);
 
 //PARSING
 int					convert_nbr(char *str);
+int			check_parsing(t_philo *philo, int ac);
 
 #endif

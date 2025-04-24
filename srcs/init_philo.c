@@ -11,6 +11,8 @@ static int	init_routine(t_philo *philo, int ac, char **av)
 	else
 		philo->routine->meals_count = -1;
 	philo->routine->stop = 0;
+	if (check_parsing(philo, ac) == EXIT_FAILURE)
+		return (EXIT_FAILURE);
 	return (EXIT_SUCCESS);
 }
 
