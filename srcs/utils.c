@@ -16,15 +16,18 @@ void	ft_putstr_fd(char *s, int fd)
 
 int join_philo(t_philo *philo)
 {
-	(void)philo;
-	// int i;
+	int i;
 
-	// i = 0;
-	// while(i < philo->philosophers)
-	// {
-	// 	pthread_join(philo[i].thread, NULL);
-	// 	i++;
-	// }
+	i = 0;
+	while(i < philo->routine->nbr_philos)
+	{
+		// if (pthread_join(philo->data[i].thread, NULL))
+		// {
+		// 	ft_putstr_fd("Error: pthread_join failed\n", 2);
+		// 	return (EXIT_FAILURE);
+		// }
+		i++;
+	}
 	// printf("JOIN PHILO\n");
 	return (EXIT_SUCCESS);
 }
@@ -34,10 +37,11 @@ int join_philo(t_philo *philo)
 //     int i;
 
 //     i = 0;
-//     while (i < philo->philosophers)
+//     while (i < philo->routine->nbr_philos)
 //     {
 //         pthread_mutex_destroy(philo->forks + i);
 //       	i++; 
 //     }
 //     return (EXIT_SUCCESS);
 // }
+

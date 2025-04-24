@@ -22,8 +22,7 @@ typedef struct s_routine
 	int				time_to_die;
 	int				time_to_sleep;
 	pthread_mutex_t	mutex_over; //assigned in detroy 1
-  pthread_mutex_t meals_mutex; //assigned in detroy 2
-
+  	pthread_mutex_t meals_mutex; //assigned in detroy 2
 }					t_routine;
 
 typedef struct s_data
@@ -60,6 +59,7 @@ void				ft_putstr_fd(char *s, int fd);
 void				*ft_calloc(size_t nmemb, size_t size);
 
 //PARSING
-int			convert_nbr(char *str);
+int					convert_nbr(char *str);
 int			check_parsing(t_philo *philo, int ac);
+
 #endif
