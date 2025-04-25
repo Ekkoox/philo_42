@@ -6,8 +6,13 @@ C_FILES = main.c\
 			utils.c\
 			struct.c\
 			parsing.c\
+			routine.c\
 			ft_calloc.c\
+			print_eat.c\
 			init_philo.c\
+			print_sleep.c\
+			print_think.c\
+
 
 BOLD = \033[1m
 RED = \033[31m

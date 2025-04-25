@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   parsing.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: enschnei <enschnei@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/04/25 15:32:14 by enschnei          #+#    #+#             */
+/*   Updated: 2025/04/25 15:32:14 by enschnei         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "philo.h"
 
 static int	is_whitiespace(char c)
@@ -47,12 +59,12 @@ int	convert_nbr(char *str)
 
 int	check_parsing(t_philo *philo, int ac)
 {
-	if (philo->routine->nbr_philos == -1
-		|| philo->routine->time_to_die == -1
-		|| philo->routine->time_to_eat == -1
-		|| philo->routine->time_to_sleep == -1)
+	if (philo->routine.nbr_philos == -1
+		|| philo->routine.time_to_die == -1
+		|| philo->routine.time_to_eat == -1
+		|| philo->routine.time_to_sleep == -1)
 		return (EXIT_FAILURE);
-	if (ac == 6 && philo->routine->meals_count == -1)
+	if (ac == 6 && philo->routine.meals_count == -1)
 		return (EXIT_FAILURE);
 	return (EXIT_SUCCESS);
 }

@@ -1,16 +1,28 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   init_philo.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: enschnei <enschnei@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/04/25 15:32:19 by enschnei          #+#    #+#             */
+/*   Updated: 2025/04/25 15:32:19 by enschnei         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "philo.h"
 
 static int	init_routine(t_philo *philo, int ac, char **av)
 {
-	philo->routine->nbr_philos = convert_nbr(av[1]);
-	philo->routine->time_to_die = convert_nbr(av[2]);
-	philo->routine->time_to_eat = convert_nbr(av[3]);
-	philo->routine->time_to_sleep = convert_nbr(av[4]);
+	philo->routine.nbr_philos = convert_nbr(av[1]);
+	philo->routine.time_to_die = convert_nbr(av[2]);
+	philo->routine.time_to_eat = convert_nbr(av[3]);
+	philo->routine.time_to_sleep = convert_nbr(av[4]);
 	if (ac == 6)
-		philo->routine->meals_count = convert_nbr(av[5]);
+		philo->routine.meals_count = convert_nbr(av[5]);
 	else
-		philo->routine->meals_count = -1;
-	philo->routine->stop = 0;
+		philo->routine.meals_count = -1;
+	philo->routine.stop = 0;
 	if (check_parsing(philo, ac) == EXIT_FAILURE)
 		return (EXIT_FAILURE);
 	return (EXIT_SUCCESS);
@@ -42,8 +54,8 @@ static int	init_data(t_philo *philo)
 	int i;
 
 	i = 0;
-	philo->routine->start_time = get_time();
-	while (i < philo->routine->nbr_philos)
+	philo->routine.start_time = get_time();
+	while (i < philo->routine.nbr_philos)
 	{
 		philo->data[i].eat = 0;
 		philo->data[i].dead = 0;
@@ -59,13 +71,13 @@ int	init(t_philo *philo, int ac, char **av)
 {
 	if (init_routine(philo, ac, av) == EXIT_FAILURE)
 		return (EXIT_FAILURE);
-	philo->data = malloc(sizeof(t_data) * philo->routine->nbr_philos);
+	philo->data = malloc(sizeof(t_data) * philo->routine.nbr_philos);
 	if (!philo->data)
 	{
 		ft_putstr_fd("Error: Data memory allocation failed\n", 2);
 		return (EXIT_FAILURE);
 	}
-	if (init_mutex(philo->routine) == EXIT_FAILURE)
+	if (init_mutex(&philo->routine) == EXIT_FAILURE)
 		return (EXIT_FAILURE);
 	if (init_data(philo) == EXIT_FAILURE)
 		return (EXIT_FAILURE);

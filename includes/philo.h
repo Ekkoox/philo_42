@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   philo.h                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: enschnei <enschnei@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/04/25 15:32:26 by enschnei          #+#    #+#             */
+/*   Updated: 2025/04/25 16:18:27 by enschnei         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef PHILO_H
 # define PHILO_H
 
@@ -21,32 +33,45 @@ typedef struct s_routine
 	int				time_to_eat;
 	int				time_to_die;
 	int				time_to_sleep;
-	pthread_mutex_t	mutex_over; //assigned in detroy 1
-  	pthread_mutex_t meals_mutex; //assigned in detroy 2
+	pthread_mutex_t	mutex_over;
+  	pthread_mutex_t meals_mutex;
 }					t_routine;
 
 typedef struct s_data
 {
+	int				id;
 	int 			eat;
 	int				dead;
 	pthread_t		thread;
-	pthread_mutex_t	left_fork; //assigned in detroy 3
-	pthread_mutex_t	*right_fork; //assigned in detroy 4
-	pthread_mutex_t	mutex_over; //assigned in detroy 5
-	pthread_mutex_t	mutex_time_to_eat; //assigned in detroy 6
+	pthread_mutex_t	left_fork;
+	pthread_mutex_t	*right_fork;
+	pthread_mutex_t	mutex_over;
+	pthread_mutex_t	mutex_time_to_eat;
 }					t_data;
 
 typedef struct s_philo
 {
 	t_data			*data;
-	t_routine		*routine;
+	t_routine		routine;
 }					t_philo;
 
 // INIT
 int					init(t_philo *philo, int ac, char **av);
 
+//PARSING
+int					convert_nbr(char *str);
+int					check_parsing(t_philo *philo, int ac);
+
+// PRINT
+int 				print_eat(t_philo *philo);
+int 				print_sleep(t_philo *philo);
+int 				print_think(t_philo *philo);
+
+// ROUTINE
+int    				routine(t_philo *philo);
+
 // STRUCT
-int					init_struct(t_philo **philo);
+int					init_struct(t_philo *philo);
 void				free_struct(t_philo *philo);
 
 // TIME
@@ -58,8 +83,5 @@ int					join_philo(t_philo *philo);
 void				ft_putstr_fd(char *s, int fd);
 void				*ft_calloc(size_t nmemb, size_t size);
 
-//PARSING
-int					convert_nbr(char *str);
-int			check_parsing(t_philo *philo, int ac);
 
 #endif
