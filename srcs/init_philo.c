@@ -59,6 +59,7 @@ static int	init_data(t_philo *philo)
 	{
 		philo->data[i].eat = 0;
 		philo->data[i].dead = 0;
+		philo->data[i].id = i + 1;
 		philo->data[i].right_fork = NULL;
 		if (init_mutex_data(philo->data) == EXIT_FAILURE)
 			return (EXIT_FAILURE);

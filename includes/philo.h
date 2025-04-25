@@ -6,7 +6,7 @@
 /*   By: enschnei <enschnei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/25 15:32:26 by enschnei          #+#    #+#             */
-/*   Updated: 2025/04/25 16:18:27 by enschnei         ###   ########.fr       */
+/*   Updated: 2025/04/25 17:47:21 by enschnei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,13 +16,13 @@
 # define ERR_PAR_NODIGIT "Error: only number accepted in parameters\n"
 # define ERR_PAR_OUTRANGE "Error: number out of range\n"
 
-# include <pthread.h>
 # include <stdio.h>
+# include <limits.h>
 # include <stdlib.h>
 # include <string.h>
-# include <sys/time.h>
 # include <unistd.h>
-# include <limits.h>
+# include <pthread.h>
+# include <sys/time.h>
 
 typedef struct s_routine
 {
@@ -71,7 +71,6 @@ int 				print_think(t_philo *philo);
 int    				routine(t_philo *philo);
 
 // STRUCT
-int					init_struct(t_philo *philo);
 void				free_struct(t_philo *philo);
 
 // TIME
