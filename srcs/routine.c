@@ -6,7 +6,7 @@
 /*   By: enschnei <enschnei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/25 15:32:10 by enschnei          #+#    #+#             */
-/*   Updated: 2025/04/26 19:23:03 by enschnei         ###   ########.fr       */
+/*   Updated: 2025/04/26 20:27:57 by enschnei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,8 +35,8 @@ static void *routine_philo(void *arg)
             return (NULL);
         if (print_sleep(data) == EXIT_FAILURE)
             return (NULL);
-        // if (print_think(data) == EXIT_FAILURE)
-        //     return (NULL);
+        if (print_think(data) == EXIT_FAILURE)
+            return (NULL);
     }
     return (NULL);
 }
