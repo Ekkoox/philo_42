@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: enschnei <enschnei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/25 15:32:19 by enschnei          #+#    #+#             */
-/*   Updated: 2025/04/25 15:32:19 by enschnei         ###   ########.fr       */
+/*   Created: 2025/04/26 18:32:36 by enschnei          #+#    #+#             */
+/*   Updated: 2025/04/26 18:32:36 by enschnei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,9 +31,9 @@ static int	init_routine(t_philo *philo, int ac, char **av)
 static int	init_mutex(t_routine *routine)
 {
 	if (pthread_mutex_init(&routine->mutex_over, NULL))
-		return (EXIT_FAILURE);
+	return (EXIT_FAILURE);
 	if (pthread_mutex_init(&routine->meals_mutex, NULL))
-		return (pthread_mutex_destroy(&routine->mutex_over), EXIT_FAILURE);
+		return (EXIT_FAILURE);
 	return (EXIT_SUCCESS);
 }
 
@@ -60,9 +60,15 @@ static int	init_data(t_philo *philo)
 		philo->data[i].eat = 0;
 		philo->data[i].dead = 0;
 		philo->data[i].id = i + 1;
+		philo->data[i].routine = &philo->routine;
 		philo->data[i].right_fork = NULL;
-		if (init_mutex_data(philo->data) == EXIT_FAILURE)
+		philo->data[i].time_last_meal = philo->routine.start_time;
+		if (init_mutex_data(&philo->data[i]) == EXIT_FAILURE)
 			return (EXIT_FAILURE);
+		if (i == philo->routine.nbr_philos - 1)
+			philo->data[i].right_fork = &philo->data[0].left_fork;
+		else
+			philo->data[i].right_fork = &philo->data[i + 1].left_fork;
 		i++;
 	}
 	return (EXIT_SUCCESS);

@@ -6,7 +6,7 @@
 /*   By: enschnei <enschnei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/25 15:32:26 by enschnei          #+#    #+#             */
-/*   Updated: 2025/04/25 17:47:21 by enschnei         ###   ########.fr       */
+/*   Updated: 2025/04/26 19:26:05 by enschnei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,8 @@ typedef struct s_routine
 	int				time_to_die;
 	int				time_to_sleep;
 	pthread_mutex_t	mutex_over;
-  	pthread_mutex_t meals_mutex;
+	pthread_mutex_t meals_mutex;
+	struct t_philo	*philo;
 }					t_routine;
 
 typedef struct s_data
@@ -42,11 +43,13 @@ typedef struct s_data
 	int				id;
 	int 			eat;
 	int				dead;
+	int				time_last_meal;
 	pthread_t		thread;
 	pthread_mutex_t	left_fork;
 	pthread_mutex_t	*right_fork;
 	pthread_mutex_t	mutex_over;
 	pthread_mutex_t	mutex_time_to_eat;
+	t_routine		*routine;
 }					t_data;
 
 typedef struct s_philo
@@ -63,9 +66,9 @@ int					convert_nbr(char *str);
 int					check_parsing(t_philo *philo, int ac);
 
 // PRINT
-int 				print_eat(t_philo *philo);
-int 				print_sleep(t_philo *philo);
-int 				print_think(t_philo *philo);
+int 				print_eat(t_data *data);
+int 				print_sleep(t_data *datat_data);
+int 				print_think(t_data *data);
 
 // ROUTINE
 int    				routine(t_philo *philo);
