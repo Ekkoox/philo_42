@@ -65,7 +65,5 @@ int	check_parsing(t_philo *philo, int ac)
 		|| philo->routine.time_to_eat == -1
 		|| philo->routine.time_to_sleep == -1)
 		return (EXIT_FAILURE);
-	// if (ac == 6 && philo->routine.meals_count == -1)
-	// 	return (EXIT_FAILURE);
 	return (EXIT_SUCCESS);
 }

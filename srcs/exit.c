@@ -6,11 +6,11 @@
 /*   By: enschnei <enschnei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/25 15:32:24 by enschnei          #+#    #+#             */
-/*   Updated: 2025/04/25 15:32:25 by enschnei         ###   ########.fr       */
+/*   Updated: 2025/04/27 20:14:33 by enschnei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "philo.h"
+#include "philo.h"
 
 // void	destroy_mutex(t_philo *philo)
 // {

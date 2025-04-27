@@ -10,6 +10,7 @@ C_FILES = main.c\
 			ft_calloc.c\
 			print_eat.c\
 			init_philo.c\
+			monitoring.c\
 			print_sleep.c\
 			print_think.c\
 
