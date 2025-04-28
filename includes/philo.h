@@ -6,7 +6,7 @@
 /*   By: enschnei <enschnei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/25 15:32:26 by enschnei          #+#    #+#             */
-/*   Updated: 2025/04/27 19:35:03 by enschnei         ###   ########.fr       */
+/*   Updated: 2025/04/28 16:08:35 by enschnei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@ typedef struct s_routine
 	int				time_to_eat;
 	int				time_to_die;
 	int				time_to_sleep;
+	pthread_mutex_t routine_mutex;
 	pthread_mutex_t	mutex_over;
 	pthread_mutex_t	meals_mutex;
 	struct t_philo	*philo;

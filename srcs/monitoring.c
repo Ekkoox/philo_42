@@ -6,11 +6,24 @@
 /*   By: enschnei <enschnei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/27 15:16:02 by enschnei          #+#    #+#             */
-/*   Updated: 2025/04/27 20:19:15 by enschnei         ###   ########.fr       */
+/*   Updated: 2025/04/28 17:53:23 by enschnei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
+
+static int eat_well(t_philo *philo)
+{
+	pthread_mutex_lock(&philo->routine.routine_mutex);
+	if (philo->routine.meals_count > 1)
+	{
+		pthread_mutex_unlock(&philo->routine.routine_mutex);
+		ft_putstr_fd("All philosophers have eaten enough\n", 1);
+		return (EXIT_FAILURE);
+	}
+	pthread_mutex_unlock(&philo->routine.routine_mutex);
+	return (EXIT_SUCCESS);
+}
 
 static void	philo_died(t_data *philo)
 {
@@ -45,8 +58,8 @@ void	*monitoring(void *arg)
 			pthread_mutex_unlock(&philo->data[i].mutex_time_to_eat);
 			i++;
 		}
-		pthread_mutex_unlock(&philo->routine.mutex_over);
-		usleep(1000);
+		if (eat_well(philo) == 1)
+			return (NULL);
 	}
 	return (NULL);
 }

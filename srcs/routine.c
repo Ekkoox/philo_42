@@ -6,7 +6,7 @@
 /*   By: enschnei <enschnei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/25 15:32:10 by enschnei          #+#    #+#             */
-/*   Updated: 2025/04/27 20:12:38 by enschnei         ###   ########.fr       */
+/*   Updated: 2025/04/28 19:27:44 by enschnei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,9 @@ static void	*routine_philo(void *arg)
 	t_data	*data;
 
 	data = (t_data *)arg;
+	
+	if (data->id % 2 == 0)
+		usleep (100);
 	while (check_death(data->routine) != 1)
 	{
 		if (print_eat(data) == EXIT_FAILURE)
@@ -40,6 +43,7 @@ static void	*routine_philo(void *arg)
 	}
 	return (NULL);
 }
+
 
 int	routine(t_philo *philo)
 {

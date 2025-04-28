@@ -28,7 +28,7 @@ WHITE  = \033[37m
 
 SRCS = $(addprefix srcs/,$(C_FILES))
 
-CFLAGS = -Wall -Werror -Wextra -I includes/ -g
+CFLAGS = -Wall -Werror -Wextra -I includes/  -pthread -fsanitize=thread -g
 
 all: ${NAME}
 

@@ -2,11 +2,11 @@
 /*                                                                            */
 /*                                                        :::      ::::::::   */
 /*   init_philo.c                                       :+:      :+:    :+:   */
-/*                                                    +:+ +:+        
+/*                                                    +:+ +:+
 	+:+     */
-/*   By: enschnei <enschnei@student.42.fr>          +#+  +:+      
+/*   By: enschnei <enschnei@student.42.fr>          +#+  +:+
 	+#+        */
-/*                                                +#+#+#+#+#+  
+/*                                                +#+#+#+#+#+
 	+#+           */
 /*   Created: 2025/04/26 18:32:36 by enschnei          #+#    #+#             */
 /*   Updated: 2025/04/26 18:32:36 by enschnei         ###   ########.fr       */
@@ -14,6 +14,7 @@
 /* ************************************************************************** */
 
 #include "philo.h"
+
 
 static int	init_routine(t_philo *philo, int ac, char **av)
 {
@@ -37,6 +38,10 @@ static int	init_mutex(t_routine *routine)
 		return (EXIT_FAILURE);
 	if (pthread_mutex_init(&routine->meals_mutex, NULL))
 		return (EXIT_FAILURE);
+	if (pthread_mutex_init(&routine->routine_mutex, NULL))
+		return (pthread_mutex_destroy(&routine->meals_mutex),
+			pthread_mutex_destroy(&routine->mutex_over), 
+			EXIT_FAILURE);
 	return (EXIT_SUCCESS);
 }
 
@@ -54,7 +59,7 @@ static int	init_mutex_data(t_data *data)
 
 static int	init_data(t_philo *philo)
 {
-	int	i;
+	int i;
 
 	i = 0;
 	philo->routine.start_time = get_time();
