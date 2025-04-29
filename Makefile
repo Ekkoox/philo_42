@@ -1,10 +1,9 @@
 NAME = philo
 
 C_FILES = main.c\
+			free.c\
 			time.c\
-			exit.c\
 			utils.c\
-			struct.c\
 			parsing.c\
 			routine.c\
 			print_eat.c\
@@ -27,7 +26,9 @@ WHITE  = \033[37m
 
 SRCS = $(addprefix srcs/,$(C_FILES))
 
-CFLAGS = -Wall -Werror -Wextra -I includes/  -pthread -fsanitize=thread -g
+# CFLAGS = -Wall -Werror -Wextra -I includes/  -pthread -fsanitize=thread -g
+CFLAGS = -Wall -Werror -Wextra -I includes/ -g
+# -pthread -fsanitize=thread
 
 all: ${NAME}
 

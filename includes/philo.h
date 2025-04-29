@@ -6,7 +6,7 @@
 /*   By: enschnei <enschnei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/25 15:32:26 by enschnei          #+#    #+#             */
-/*   Updated: 2025/04/29 11:19:36 by enschnei         ###   ########.fr       */
+/*   Updated: 2025/04/29 17:03:29 by enschnei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,11 @@
 
 # define ERR_PAR_NODIGIT "Error: only number accepted in parameters\n"
 # define ERR_PAR_OUTRANGE "Error: number out of range\n"
+# define FORK "has taken a fork\n"
+# define EAT "is eating\n"
+# define SLEEP "is sleeping\n"
+# define THINK "is thinking\n"
+
 
 # include <limits.h>
 # include <pthread.h>
@@ -44,6 +49,7 @@ typedef struct s_data
 	int				id;
 	int				eat;
 	int				dead;
+	int 			stop;
 	int				time_last_meal;
 	pthread_t		thread;
 	pthread_mutex_t	left_fork;
@@ -59,11 +65,16 @@ typedef struct s_philo
 	t_routine		routine;
 }					t_philo;
 
+//FREE
+void				ft_exit(t_philo *philo, int mutex, int nbr_philo);
+
 // INIT
 int					init(t_philo *philo, int ac, char **av);
 
 // MONITORING
 void				*monitoring(void *arg);
+int 				philo_died(t_data *data);
+int 				can_i_print(t_data *data, char *str);
 
 // PARSING
 int					convert_nbr(char *str);
@@ -76,6 +87,7 @@ int					print_think(t_data *data);
 
 // ROUTINE
 int					routine(t_philo *philo);
+int					check_death(t_routine *routine);
 
 // STRUCT
 void				free_struct(t_philo *philo);
@@ -85,7 +97,6 @@ int		get_time(void);
 
 // UTILS
 int					join_philo(t_philo *philo);
-// int					destroy_philo(t_philo *philo);
 void				ft_putstr_fd(char *s, int fd);
 
 #endif

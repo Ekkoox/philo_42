@@ -6,7 +6,7 @@
 /*   By: enschnei <enschnei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/25 15:32:00 by enschnei          #+#    #+#             */
-/*   Updated: 2025/04/27 20:15:04 by enschnei         ###   ########.fr       */
+/*   Updated: 2025/04/29 15:58:05 by enschnei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,19 +46,6 @@ int	join_philo(t_philo *philo)
 		return (EXIT_FAILURE);
 	return (EXIT_SUCCESS);
 }
-
-// int destroy_philo(t_philo *philo)
-// {
-//     int i;
-
-//     i = 0;
-//     while (i < philo->routine->nbr_philos)
-//     {
-//         pthread_mutex_destroy(philo->forks + i);
-//       	i++;
-//     }
-//     return (EXIT_SUCCESS);
-// }
 
 int	check_stop_routine(t_philo *philo)
 {

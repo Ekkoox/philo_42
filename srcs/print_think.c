@@ -6,7 +6,7 @@
 /*   By: enschnei <enschnei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/25 16:07:20 by enschnei          #+#    #+#             */
-/*   Updated: 2025/04/28 19:31:11 by enschnei         ###   ########.fr       */
+/*   Updated: 2025/04/29 15:31:38 by enschnei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 
 int	print_think(t_data *data)
 {
-	printf("%u %d is thinking\n", get_time() - data->routine->start_time,
-		data->id);
+	can_i_print(data, THINK);
 	return (EXIT_SUCCESS);
 }

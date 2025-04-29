@@ -6,13 +6,13 @@
 /*   By: enschnei <enschnei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/25 15:32:10 by enschnei          #+#    #+#             */
-/*   Updated: 2025/04/28 19:27:44 by enschnei         ###   ########.fr       */
+/*   Updated: 2025/04/29 12:19:07 by enschnei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
-static int	check_death(t_routine *routine)
+int	check_death(t_routine *routine)
 {
 	int	state;
 
@@ -43,7 +43,6 @@ static void	*routine_philo(void *arg)
 	}
 	return (NULL);
 }
-
 
 int	routine(t_philo *philo)
 {

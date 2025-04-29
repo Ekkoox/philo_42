@@ -6,7 +6,7 @@
 /*   By: enschnei <enschnei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/25 15:32:16 by enschnei          #+#    #+#             */
-/*   Updated: 2025/04/25 19:02:20 by enschnei         ###   ########.fr       */
+/*   Updated: 2025/04/29 17:17:06 by enschnei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,11 +23,11 @@ int	main(int ac, char **av)
 		return (EXIT_FAILURE);
 	}
 	if (init(&philo, ac, av) == EXIT_FAILURE)
-		return (free_struct(&philo), EXIT_FAILURE);
+		return (ft_exit(&philo, 3, philo.routine.nbr_philos), EXIT_FAILURE);
 	if (routine(&philo) == EXIT_FAILURE)
-		return (free_struct(&philo), EXIT_FAILURE);
+		return (ft_exit(&philo, 3, philo.routine.nbr_philos), EXIT_FAILURE);
 	if (join_philo(&philo) == EXIT_FAILURE)
-		return (free_struct(&philo), EXIT_FAILURE);
-	free_struct(&philo);
+		return (ft_exit(&philo, 3, philo.routine.nbr_philos), EXIT_FAILURE);
+	ft_exit(&philo, 3, philo.routine.nbr_philos);
 	return (EXIT_SUCCESS);
 }
