@@ -6,7 +6,7 @@
 /*   By: enschnei <enschnei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/25 15:32:26 by enschnei          #+#    #+#             */
-/*   Updated: 2025/04/28 16:08:35 by enschnei         ###   ########.fr       */
+/*   Updated: 2025/04/29 11:19:36 by enschnei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,6 +87,5 @@ int		get_time(void);
 int					join_philo(t_philo *philo);
 // int					destroy_philo(t_philo *philo);
 void				ft_putstr_fd(char *s, int fd);
-void				*ft_calloc(size_t nmemb, size_t size);
 
 #endif

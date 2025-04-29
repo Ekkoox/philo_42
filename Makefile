@@ -7,7 +7,6 @@ C_FILES = main.c\
 			struct.c\
 			parsing.c\
 			routine.c\
-			ft_calloc.c\
 			print_eat.c\
 			init_philo.c\
 			monitoring.c\
